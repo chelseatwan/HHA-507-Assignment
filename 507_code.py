@@ -30,14 +30,10 @@ hospitals_ny.info()
 
 #Clean out data
 hospitals_ny.dropna()
-hospitals_ny_rating = hospitals_ny[-hospitals_ny['hospital_overall_rating'].isnull()]
-hospitals_ny_rating['hospital_overall_rating'].isna().sum()
-hospitals_ny_rating.info()
 
 #Pivot table looking at effectiveness of care in NY hospitals
-hospitals_ny_rating['hospital_overall_rating'] = hospitals_ny_rating['hospital_overall_rating'].astype('int')
-hospitals_ny_rating_pivot = hospitals_ny_rating.pivot_table(index=['state', 'city'],values=['hospital_overall_rating'])
-hospitals_ny_rating_pivot
+hospitals_ny_pivot = hospitals_ny.pivot_table(index=['state', 'city'],values=['effectiveness_of_care_national_comparison_footnote'],aggfunc='mean')
+st.dataframe(hospitals_ny_pivot)
 
 #Introduce second dataset - inpatient
 st.header('Inpatient Data Preview for NY')
