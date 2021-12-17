@@ -8,8 +8,6 @@ Created on Thu Dec 16 13:32:49 2021
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 #Title of app
 st.title('HHA 507 Final Assignment')
